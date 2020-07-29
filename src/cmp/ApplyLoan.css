@@ -1,0 +1,7 @@
+table #loan{
+    border: 1px solid;
+    width:20% !important;
+    }
+table #loan text,select{ 
+    width:100% !important;
+}
