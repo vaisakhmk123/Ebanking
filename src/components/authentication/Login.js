@@ -8,19 +8,36 @@ import {
     Redirect, useHistory
 } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {signin} from '../../actions';
+import {signin,fetchUserFailure,fetchUserSuccess,fetchUserRequest } from '../../actions';
+import './Login.css'
+
  const Login = () => {
     const history = useHistory();
     const [uname ,setUname] =useState(null);
     const [password ,setPassword] =useState(null);
     const isLogged = useSelector(state => state.isLogged);
+    const userList = useSelector(state => state.users);
     const dispatch = useDispatch();
+    const axios = require('axios')
+    function fetchUsers(){
+            axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response =>{
+                const users =response.data.map(user => user.name)
+                fetchUserSuccess(users);
+            })
+            .catch(error => {
+              fetchUserFailure(error.message)
+            })
+      }
+
     const login = () => {
         var auth = "invalid";
+        fetchUsers();   
         if (uname&&password) {
-            if (uname === "admin" && password === "admin") {                
-                history.push("/welcome");
+            if (uname === "admin" && password === "admin") {  
                 dispatch(signin());
+                console.log(userList);           
+                history.push("/welcome");
             } else {
                    }
         }

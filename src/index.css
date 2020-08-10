@@ -14,10 +14,11 @@ code {
 
  a {
   padding : 10px;
-  background-color:antiquewhite;
+  background-color:#034da2;
   height: 22px;
   width: 23%;
   display:inline-block;
   margin-bottom: 20px;
+  color: white;
 } 
 

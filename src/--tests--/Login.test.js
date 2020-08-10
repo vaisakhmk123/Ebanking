@@ -32,7 +32,7 @@ describe("With React Testing Library" ,() =>{
     //         target:"admin"
     //     })
     //     fireEvent.click(getByTestId(/login/i));
-    //     expect (getByTestId('welcome')).toHaveTextContent(route);
+    //     expect (getByTestId('welcome')).toHaveBeenCalledWith(route);
      
     // });
 });
