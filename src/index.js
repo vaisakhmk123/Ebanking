@@ -13,28 +13,7 @@ import { applyMiddleware,compose } from 'redux';
 
 const axios = require('axios')
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// creating store
 const store = createStore(allReducer,applyMiddleware(thunk))
-// const store = createStore(allReducer
-//    ,applyMiddleware(thunk)
-//   // ,composeEnhancer(applyMiddleware(thunk))
-//   // , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-//   )
-// store.subscribe()
-// store.dispatch(fetchUsers())
-// const express= require('express')
-// const app = express()
-// app.use(logger)
-
-// app.get('/users', (req, res) => {
-//   console.log('users page')
-//   res.send('Users Page')
-// })
-
-// function logger(req,res,next){
-//   console.log('log')
-//   next()
-// }
 ReactDOM.hydrate(
   <React.StrictMode>
      {/* Providing store to entire application */}

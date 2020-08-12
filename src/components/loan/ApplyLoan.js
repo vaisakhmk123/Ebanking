@@ -1,7 +1,8 @@
 import React, { useState } from '../../../node_modules/react';
 import './ApplyLoan.css';
 import { useDispatch } from 'react-redux';
-import { applyloan } from '../../actions';
+import { applyloan,fetchUserSuccess,fetchUserFailure} from '../../actions';
+import { axios } from 'axios';
 
 
 
@@ -32,6 +33,17 @@ const ApplyLoan = () => {
             date:'',
             duration:'0'}
         )
+
+        axios.get('http://localhost:8000/users')
+        .then(response =>{
+            const users =response.data.map(user => user.name)
+            fetchUserSuccess(users);
+        })
+        .catch(error => {
+          fetchUserFailure(error.message)
+        })
+
+
     }
     let styles = {
         width: '100%'
